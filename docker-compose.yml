@@ -1,5 +1,13 @@
 services:
-  app:
+  cdn:
+    build: .
+    environment:
+      - RUNNER_BASE=http://localhost:3000
+    ports:
+      - 3001:3001
+    command: npm run dc:cdn
+  api:
     build: .
     ports:
       - 3000:3000
+    command: npm run dc:api
